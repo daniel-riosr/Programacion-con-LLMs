@@ -1,1 +1,50 @@
+PROBLEMA 4: RESIDUOS ESTANDARIZADOS DE REGRESIÓN LINEAL
 
+Después de ajustar un modelo de regresión lineal, analizar los residuos crudos (y_real - y_pred) puede ser engañoso porque su magnitud depende de la escala de la variable objetivo. Los residuos estandarizados (divididos por su desviación estándar) permiten comparar observaciones entre sí y detectar predicciones problemáticas. Convencionalmente, un residuo estandarizado con valor absoluto mayor a 2 o 3 se considera sospechoso.
+
+Tu misión:
+
+Escribe una función llamada residuos_estandarizados que entrene una regresión lineal sobre datos escalados y retorne el array de residuos estandarizados sobre el conjunto de prueba.
+
+Firma de la función:
+
+def residuos_estandarizados(
+df: pd.DataFrame,
+target_col: str,
+test_size: float = 0.2,
+random_state: int = 42
+) -> np.ndarray
+
+Argumentos:
+
+df (pd.DataFrame): DataFrame con columnas numéricas. Sin NaNs.
+
+target_col (str): Nombre de la columna objetivo (variable continua).
+
+test_size (float): Proporción del conjunto de prueba (default: 0.2).
+
+random_state (int): Semilla para reproducibilidad (default: 42).
+
+Pasos requeridos:
+
+Separar X (todas las columnas excepto target_col) e y (target_col) usando pandas.
+
+Dividir en train/test con train_test_split de sklearn.
+
+Escalar X con StandardScaler (fit en train, transform en ambos).
+
+Entrenar un LinearRegression de sklearn sobre el conjunto de entrenamiento.
+
+Predecir sobre el conjunto de test.
+
+Calcular los residuos:
+residuos = y_test - y_pred.
+
+Estandarizar con numpy:
+(residuos - residuos.mean()) / residuos.std().
+
+Retornar el array resultante redondeado a 4 decimales.
+
+Tipo de retorno:
+
+np.ndarray — array 1D de floats con los residuos estandarizados del conjunto de test.
