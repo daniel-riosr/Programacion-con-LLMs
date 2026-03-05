@@ -1,1 +1,49 @@
+PROBLEMA 2: TASA DE ERROR POR CLASE EN UN CLASIFICADOR KNN
 
+Cuando se evalúa un modelo de clasificación multiclase, la exactitud global puede ocultar que el modelo falla sistemáticamente en clases concretas. Una métrica más informativa es la tasa de error por clase: para cada clase, ¿qué fracción de sus muestras reales fueron mal clasificadas?
+
+Tu misión:
+
+Escribe una función llamada tasa_error_por_clase que entrene un clasificador KNN sobre datos escalados y retorne un array con la tasa de error individual de cada clase, ordenadas según el orden ascendente de la etiqueta de clase.
+
+Firma de la función:
+
+def tasa_error_por_clase(
+X: np.ndarray,
+y: np.ndarray,
+n_neighbors: int = 5,
+test_size: float = 0.2,
+random_state: int = 42
+) -> np.ndarray
+
+Argumentos:
+
+X (np.ndarray): Matriz de features 2D, sin NaNs.
+
+y (np.ndarray): Vector de etiquetas de clase (enteros).
+
+n_neighbors (int): Número de vecinos del KNN (default: 5).
+
+test_size (float): Proporción del conjunto de prueba (default: 0.2).
+
+random_state (int): Semilla para reproducibilidad (default: 42).
+
+Pasos requeridos:
+
+Dividir X e y en train/test con train_test_split de sklearn.
+
+Escalar X con StandardScaler de sklearn (fit en train, transform en ambos).
+
+Entrenar un KNeighborsClassifier con n_neighbors.
+
+Predecir sobre el conjunto de test.
+
+Con numpy, para cada clase en np.unique(y) ordenada ascendentemente, calcular:
+tasa_error = número de muestras mal clasificadas de esa clase /
+número total de muestras de esa clase en test.
+
+Retornar el array de tasas de error (un valor por clase).
+
+Tipo de retorno:
+
+np.ndarray — array 1D de floats con la tasa de error de cada clase, en orden ascendente de etiqueta.
