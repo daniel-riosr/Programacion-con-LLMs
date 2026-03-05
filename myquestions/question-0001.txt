@@ -1,1 +1,38 @@
+PROBLEMA 1: COEFICIENTES ESTANDARIZADOS DE REGRESIÓN LINEAL
 
+En regresión lineal, los coeficientes crudos no son comparables entre sí cuando las variables tienen escalas distintas (por ejemplo: edad en años vs. salario en millones). Para saber qué variable influye más en la predicción, es necesario estandarizar las features antes de ajustar el modelo, obteniendo así los llamados coeficientes beta estandarizados.
+
+Tu misión:
+
+Escribe una función llamada coeficientes_estandarizados que, dado un DataFrame con variables numéricas, escale las features, entrene una regresión lineal y devuelva los coeficientes estandarizados ordenados de mayor a menor influencia (en valor absoluto).
+
+Firma de la función:
+
+def coeficientes_estandarizados(
+df: pd.DataFrame,
+target_col: str
+) -> np.ndarray
+
+Argumentos:
+
+df (pd.DataFrame): DataFrame con columnas numéricas. Sin NaNs.
+
+target_col (str): Nombre de la columna objetivo (variable continua).
+
+Pasos requeridos:
+
+Separar X (todas las columnas excepto target_col) e y (la columna target_col).
+
+Escalar X con StandardScaler de sklearn.
+
+Entrenar un LinearRegression de sklearn sobre los datos escalados.
+
+Obtener los coeficientes del modelo como array de numpy.
+
+Ordenar los coeficientes por valor absoluto descendente usando numpy.
+
+Retornar ese array ordenado.
+
+Tipo de retorno:
+
+np.ndarray — array 1D con los coeficientes estandarizados, ordenados de mayor a menor impacto absoluto.
