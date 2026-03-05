@@ -1,1 +1,46 @@
+PROBLEMA 3: PUREZA DE CLUSTERS (CLUSTER PURITY SCORE)
 
+Al aplicar K-Means para segmentar datos, es común tener etiquetas reales disponibles (aunque no se usen en el entrenamiento) para evaluar qué tan coherentes son los clusters resultantes con la realidad. Una métrica intuitiva para esto es el índice de pureza: para cada cluster, se identifica cuál es la clase real más frecuente dentro de él, y la pureza global es la proporción de muestras que pertenecen a esa clase mayoritaria en su respectivo cluster.
+
+Tu misión:
+
+Escribe una función llamada cluster_purity_score que escale los datos, aplique K-Means y calcule el índice de pureza global comparando los clusters obtenidos contra las etiquetas reales.
+
+Firma de la función:
+
+def cluster_purity_score(
+df: pd.DataFrame,
+label_col: str,
+n_clusters: int,
+random_state: int = 42
+) -> float
+
+Argumentos:
+
+df (pd.DataFrame): DataFrame con columnas numéricas y una columna de etiquetas. Sin NaNs.
+
+label_col (str): Nombre de la columna con las etiquetas reales (no se usa en el entrenamiento).
+
+n_clusters (int): Número de clusters para K-Means.
+
+random_state (int): Semilla para reproducibilidad (default: 42).
+
+Pasos requeridos:
+
+Separar X (todas las columnas excepto label_col) e y (la columna label_col) usando pandas.
+
+Escalar X con StandardScaler de sklearn.
+
+Ajustar un KMeans con n_clusters y random_state sobre X escalado.
+
+Obtener las etiquetas de cluster predichas.
+
+Con numpy, para cada cluster calcular cuántas muestras pertenecen a la clase real más frecuente dentro de él (usar np.bincount + np.max).
+
+Sumar esos máximos y dividir entre el total de muestras.
+
+Retornar el resultado como float redondeado a 4 decimales.
+
+Tipo de retorno:
+
+float — índice de pureza global entre 0.0 (pésimo) y 1.0 (clusters perfectamente puros).
