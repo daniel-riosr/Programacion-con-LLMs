@@ -45,13 +45,3 @@ def generar_caso_coeficientes_estandarizados() -> tuple[dict, np.ndarray]:
 
     return input_dict, output
 
-
-# --- Ejemplo de uso ---
-if __name__ == "__main__":
-    inp, out = generar_caso_coeficientes_estandarizados()
-    print("=== INPUT ===")
-    print(f"  df.shape    : {inp['df'].shape}")
-    print(f"  target_col  : '{inp['target_col']}'")
-    print(f"  features    : {[c for c in inp['df'].columns if c != inp['target_col']]}")
-    print("\n=== OUTPUT ===")
-    print(f"  coeficientes ordenados: {out.round(4)}")

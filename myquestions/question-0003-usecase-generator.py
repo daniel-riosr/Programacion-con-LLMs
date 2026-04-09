@@ -73,14 +73,3 @@ def generar_caso_cluster_purity() -> tuple[dict, float]:
     return input_dict, output
 
 
-# --- Ejemplo de uso ---
-if __name__ == "__main__":
-    inp, out = generar_caso_cluster_purity()
-    print("=== INPUT ===")
-    print(f"  df.shape     : {inp['df'].shape}")
-    print(f"  label_col    : '{inp['label_col']}'")
-    print(f"  clases únicas: {sorted(inp['df'][inp['label_col']].unique())}")
-    print(f"  n_clusters   : {inp['n_clusters']}")
-    print(f"  random_state : {inp['random_state']}")
-    print("\n=== OUTPUT ===")
-    print(f"  cluster_purity_score = {out}")
