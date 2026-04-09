@@ -5,7 +5,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 
-def generar_caso_residuos_estandarizados() -> tuple[dict, np.ndarray]:
+def generar_caso_de_uso_residuos_estandarizados() -> tuple[dict, np.ndarray]:
     """
     Genera un par (input, output) aleatorio para residuos_estandarizados().
 
@@ -64,3 +64,16 @@ def generar_caso_residuos_estandarizados() -> tuple[dict, np.ndarray]:
 
     return input_dict, output
 
+
+# --- Ejemplo de uso ---
+if __name__ == "__main__":
+    inp, out = generar_caso_residuos_estandarizados()
+    print("=== INPUT ===")
+    print(f"  df.shape     : {inp['df'].shape}")
+    print(f"  target_col   : '{inp['target_col']}'")
+    print(f"  test_size    : {inp['test_size']}")
+    print(f"  random_state : {inp['random_state']}")
+    print("\n=== OUTPUT ===")
+    print(f"  shape   : {out.shape}")
+    print(f"  primeros 5 residuos estandarizados: {out[:5]}")
+    print(f"  |res| > 2: {(np.abs(out) > 2).sum()} muestras sospechosas")
