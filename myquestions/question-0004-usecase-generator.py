@@ -67,7 +67,7 @@ def generar_caso_de_uso_residuos_estandarizados() -> tuple[dict, np.ndarray]:
 
 # --- Ejemplo de uso ---
 if __name__ == "__main__":
-    inp, out = generar_caso_residuos_estandarizados()
+    inp, out = generar_caso_de_uso_residuos_estandarizados()
     print("=== INPUT ===")
     print(f"  df.shape     : {inp['df'].shape}")
     print(f"  target_col   : '{inp['target_col']}'")

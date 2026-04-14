@@ -69,7 +69,7 @@ def generar_caso_de_uso_tasa_error_por_clase() -> tuple[dict, np.ndarray]:
 
 # --- Ejemplo de uso ---
 if __name__ == "__main__":
-    inp, out = generar_caso_tasa_error_por_clase()
+    inp, out = generar_caso_de_uso_tasa_error_por_clase()
     print("=== INPUT ===")
     print(f"  X.shape      : {inp['X'].shape}")
     print(f"  clases únicas: {np.unique(inp['y'])}")

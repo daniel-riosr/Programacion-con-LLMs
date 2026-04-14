@@ -75,7 +75,7 @@ def generar_caso_de_uso_cluster_purity() -> tuple[dict, float]:
 
 # --- Ejemplo de uso ---
 if __name__ == "__main__":
-    inp, out = generar_caso_cluster_purity()
+    inp, out = generar_caso_de_uso_cluster_purity()
     print("=== INPUT ===")
     print(f"  df.shape     : {inp['df'].shape}")
     print(f"  label_col    : '{inp['label_col']}'")
